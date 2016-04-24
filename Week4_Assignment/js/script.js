@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 showLoading("#main-content");
 $ajaxUtils.sendGetRequest(
   allCategoriesUrl, 
-  function (responseText){
+  function buildAndShowHomeHTML(responseText){
 	  document.querySelector("#main-content")
       .innerHTML = responseText;
   }, // ***** <---- TODO: STEP 1: Substitute [...] ******
@@ -100,7 +100,7 @@ function buildAndShowHomeHTML (categories) {
   // Load home snippet page
   $ajaxUtils.sendGetRequest(
     homeHtmlUrl,
-    function (homeHtml) {
+    function (homeHtmlUrl) {
 
       // TODO: STEP 2: Here, call chooseRandomCategory, passing it retrieved 'categories'
       // Pay attention to what type of data that function returns vs what the chosenCategoryShortName
