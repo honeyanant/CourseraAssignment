@@ -83,10 +83,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 showLoading("#main-content");
 $ajaxUtils.sendGetRequest(
   allCategoriesUrl, 
-  function (responseText){
-	  document.querySelector("#main-content")
-      .innerHTML = responseText;
-  }, // ***** <---- TODO: STEP 1: Substitute [...] ******
+  buildAndShowHomeHTML, // ***** <---- TODO: STEP 1: Substitute [...] ******
   true); // Explicitely setting the flag to get JSON from server processed into an object literal
 });
 // *** finish **
@@ -108,9 +105,9 @@ function buildAndShowHomeHTML (categories) {
       // var chosenCategoryShortName = ....
      
     			          var chosenCategoryShortName = 
-    			        	  chooseRandomCategory(categories);
+    			        	  chooseRandomCategory(categories).short_name;
     			          chosenCategoryShortName="'"+chosenCategoryShortName+"'";
-console.log(chosenCategoryShortName);
+    			          console.log(chosenCategoryShortName);
       // TODO: STEP 3: Substitute {{randomCategoryShortName}} in the home html snippet with the
       // chosen category from STEP 2. Use existing insertProperty function for that purpose.
       // Look through this code for an example of how to do use the insertProperty function.
@@ -123,9 +120,9 @@ console.log(chosenCategoryShortName);
       // it into the home html snippet.
       // 
       // var homeHtmlToInsertIntoMainPage = ....
-    			         // var homeHtmlToInsertIntoMainPage = insertProperty(categoryHtml,"short_name",chosenCategoryShortName);
-    			          var homeHtmlToInsertIntoMainPage =homeHtml;
-    			          var homeHtmlToInsertIntoMainPage = insertProperty(homeHtmlToInsertIntoMainPage,"randomCategoryShortName",chosenCategoryShortName);
+    			        
+    			          //var homeHtmlToInsertIntoMainPage =homeHtml;
+    			          var homeHtmlToInsertIntoMainPage = insertProperty(homeHtml,"randomCategoryShortName",chosenCategoryShortName);
      			         
     			          
       // TODO: STEP 4: Insert the the produced HTML in STEP 3 into the main page
