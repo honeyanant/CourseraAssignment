@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 showLoading("#main-content");
 $ajaxUtils.sendGetRequest(
   allCategoriesUrl, 
-  function buildAndShowHomeHTML(responseText){
+  function (responseText){
 	  document.querySelector("#main-content")
       .innerHTML = responseText;
   }, // ***** <---- TODO: STEP 1: Substitute [...] ******
@@ -110,7 +110,7 @@ function buildAndShowHomeHTML (categories) {
     			          var chosenCategoryShortName = 
     			        	  chooseRandomCategory(categories);
     			          chosenCategoryShortName="'"+chosenCategoryShortName+"'";
-
+console.log(chosenCategoryShortName);
       // TODO: STEP 3: Substitute {{randomCategoryShortName}} in the home html snippet with the
       // chosen category from STEP 2. Use existing insertProperty function for that purpose.
       // Look through this code for an example of how to do use the insertProperty function.
